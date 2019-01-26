@@ -13,3 +13,9 @@ export const setSuccessMessage = () => {
     elements.emailResponse.style.backgroundColor = 'green';
     elements.emailResponse.textContent = 'Email enviado correctamente!';
 };
+
+export const cleanFields = () => {
+    elements.formName.value = '';
+    elements.formEmail.value = '';
+    elements.formMessage.value = '';
+};

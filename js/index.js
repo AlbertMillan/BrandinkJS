@@ -2,9 +2,17 @@ import * as mailView from './views/mailView';
 import { elements } from './views/base'
 
 const mailchecker = require('mailchecker');
+const axios = require('axios');
+const fs = require('fs');
 
 
-const API_URL = 'http://localhost:3000'
+// const API_URL = 'http://localhost:3000/api'
+const API_URL =  'https://infinite-spire-26504.herokuapp.com/api'
+
+const instance = axios.create({
+    validateStatus: ((status) => status === 200)
+});
+
 
 elements.formBtn.addEventListener('click', async (event) => {
     event.preventDefault();
@@ -17,13 +25,20 @@ elements.formBtn.addEventListener('click', async (event) => {
         {
             // 1. Send Pass parameters to send email and retrieve response
             const url = `${API_URL}/submitForm?name=${elements.formName.value}&email=${elements.formEmail.value}&text=${elements.formMessage.value}`;
-            // const res = await query(url);
 
-            fetch(url).then(res => res.json()).then(result => {
-                // 2. Check if email was actually delivered successfully.
-                // TODO: Need to correct this.
-                result.message === 'Success' ? mailView.setSuccessMessage() : mailView.setErrorMessage('Error al enviar email!');
-            });
+            instance.get(url)
+                .then((result) => {
+                    result.data.message === 'Success' ? mailView.setSuccessMessage() : mailView.setErrorMessage('Error al enviar email!');
+                    mailView.cleanFields();
+                })
+                .catch ((error) => {
+                    const now = new Date().toString();
+                    mailView.setErrorMessage('Servidor en mantenimiento!')
+                    fs.appendFile('client.log', `${now}: ${error}`, (err) => {
+                        if (err) console.log(err);
+                    });
+                    console.log(error);
+                });
         }
         else {
             mailView.setErrorMessage('Email invalido!');
@@ -31,8 +46,8 @@ elements.formBtn.addEventListener('click', async (event) => {
     }
     else
     {
-        // 1. Set background color to red!
-        mailView.setErrorMessage('Rellene los campos Nombre y Email!y');
+        // Set background color to red!
+        mailView.setErrorMessage('Rellene los campos Nombre y Email!');
     }
 
     // 2. Display response message
@@ -43,12 +58,11 @@ elements.formBtn.addEventListener('click', async (event) => {
     
 });
 
-
-// const query = (url) => {
-//     let res;
-//     fetch(url)
-//     .then(res => res.json())
-//     .then(result => {
-//         return result;
-//     });
-// };
+/**
+ * TODO
+ *  [✔] Use axiom library to fetch requests to db
+ *  [ ] Investigate how to get store data from the request (for 
+ *      some reason you aren't able to do so).
+ *  [ ] Center error message when sending email.
+ *  [ ] Show images code dinamically at the start instead of having shit tons of lines
+ */

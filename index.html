@@ -5,28 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Brandink</title>
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="style/lightbox.min.css" /> -->
-    <!-- <script type="text/javascript" src="js/lightbox-plus-jquery.min.js"></script> -->
-    <!-- <script>
-        // When the user clicks on div, open the popup
-        function myFunction() {
-
-            $.ajax({
-                url: "contactform.php",
-                type: "POST",
-            }).done(function( data ) {
-                if( data == 200 ) {
-                    var popup = document.getElementById("myPopup");
-                    popup.classList.toggle("show");                            // Generate Popup
-                     /*setTimeout(() => {
-                         popup.classList.toggle("show");                        // Remove Popup
-                    }, 2000);*/
-                }
-            });
-
-            
-        }
-    </script> -->
+    <link rel="stylesheet" type="text/css" href="css/lightbox.min.css" />
+    <script type="text/javascript" src="js/lightbox-plus-jquery.min.js"></script>
+    <!-- <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgo="> -->
 </head>
 
 <body>
@@ -37,10 +18,6 @@
             <span class="big_text">BRANDINK</span>
         </div> -->
     </div>
-    <!-- </section> -->
-
-    <!-- <p style="padding:5px 15px">This example creates a full page background image. Try to resize the browser window to see how it always will cover the
-        full screen (when scrolled to top), and that it scales nicely on all screen sizes.</p> -->
 
     <section class="section_2" >
         <div class="caption">
@@ -49,7 +26,11 @@
         <br/>
         <div class="line_2"></div>
         <div class="sec2_box_text">
-            <p class="barlow_p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum molestiae eaque itaque nemo repellendus rem odit dolorem, est unde et. Culpa, id. Laboriosam enim eum, quos aperiam optio sed ea!</p>
+            <span class='barlow_l'>
+                ¡Ya era hora de que personalizar productos con tu imagen fuera tan fácil! &#13;&#10;
+                Nuestra oferta abarca diferentes modalidades desde la personalización
+                en textil hasta elementos imprescindibles para tu oficina.
+            </span>
         </div>
         <div class="sec2_options">
             <div class="img_with_text">
@@ -81,14 +62,7 @@
         </div>
         <br/>
         <div class="line"></div>
-        <!-- <div class="sec2_box_text">
-            <p class="barlow_p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum molestiae eaque itaque nemo repellendus rem odit dolorem,
-                est unde et. Culpa, id. Laboriosam enim eum, quos aperiam optio sed ea!</p>
-        </div> -->
 
-        <!-- Puedo añadir un nombre a cada imagen: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_overlay_opacity -->
-        <!-- Crear galeria - https://www.youtube.com/watch?v=C1B1Fx3XKOg -->
-        <!-- También puedo meterlo en un container en el centro de la pantalla -->
         <div class="row">
             <div class="column">
                 <div class="sup">
@@ -99,6 +73,16 @@
                         </div>  
                     </a>
                 </div>
+
+                <div class="sup">
+                    <a href="images/VINILO.jpg" data-lightbox="mygallery" data-title="VINILO">                    
+                        <img class="item" src="images/VINILO.jpg" alt="Vinilo">
+                        <div class="middle">
+                            <p>VINILO</p>
+                        </div>
+                    </a>
+                </div>
+
                 <div class="sup">
                     <a href="images/BRANDINK_ETIQUETAS.jpg" data-lightbox="mygallery" data-title="ETIQUETAS">
                         <img class="item" src="images/BRANDINK_ETIQUETAS.jpg" alt="Etiquetas">
@@ -127,22 +111,14 @@
                 </div>
 
                 <div class="sup">
-                    <a href="images/BRANDINK_MALETA_MANO.jpg" data-lightbox="mygallery" data-title="MALETA DE MANO">
-                        <img class="item" src="images/BRANDINK_MALETA_MANO.jpg" alt="Maleta_de_mano">
+                    <a href="images/BOTTLE.jpg" data-lightbox="mygallery"  data-title="BOTELLA">
+                        <img class="item" src="images/BOTTLE.jpg" alt="Bottle">
                         <div class="middle">
-                            <p>MALETA DE MANO</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="sup">
-                    <a href="images/BRANDINK_BOTELLA.jpg" data-lightbox="mygallery"  data-title="BOTELLA DE VINO">
-                        <img class="item" src="images/BRANDINK_BOTELLA.jpg" alt="Botella_de_vino">
-                        <div class="middle">
-                            <p>BOTELLA DE VINO</p>
+                            <p>BOTELLA</p>
                         </div>
                     </a> 
                 </div>
+
             </div>
             <div class="column">
                 <div class="sup">
@@ -152,17 +128,6 @@
                             <p>CAMISETAS</p>
                         </div>
                     </a>
-                   
-                </div>
-
-                <div class="sup">
-                    <a href="images/BRANDINK_SELLO.jpg" data-lightbox="mygallery" data-title="SELLOS">                    
-                        <img class="item" src="images/BRANDINK_SELLO.jpg" alt="Sellos">
-                        <div class="middle">
-                            <p>SELLOS</p>
-                        </div>
-                    </a>
-                    
                 </div>
 
                 <div class="sup">
@@ -180,6 +145,15 @@
                         <img class="item" src="images/BRANDINK_PLAYERA_MANO.jpg" alt="Bolsa Playera">
                         <div class="middle">
                             <p>BOLSA PLAYERA</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="sup">
+                    <a href="images/BRANDINK_MALETA_MANO.jpg" data-lightbox="mygallery" data-title="MALETA DE MANO">
+                        <img class="item" src="images/BRANDINK_MALETA_MANO.jpg" alt="Maleta_de_mano">
+                        <div class="middle">
+                            <p>MALETA DE MANO</p>
                         </div>
                     </a>
                 </div>
@@ -219,14 +193,22 @@
                             <p>BOLSAS</p>
                         </div>
                     </a>
-                    
                 </div>
                 
                 <div class="sup">
-                    <a href="images/BRANDINK_FOOD_PACKAGE.jpg" data-lightbox="mygallery" data-title="FOOD PACKAGING">                    
-                        <img class="item" src="images/BRANDINK_FOOD_PACKAGE.jpg" alt="Food Package">
+                    <a href="images/NOTEBOOK.jpg" data-lightbox="mygallery" data-title="NOTEBOOK">                    
+                        <img class="item" src="images/NOTEBOOK.jpg" alt="Notebook">
                         <div class="middle">
-                            <p>FOOD PACKAGING</p>
+                            <p>NOTEBOOK</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="sup">
+                    <a href="images/TAZAS.jpg" data-lightbox="mygallery" data-title="TAZA">                    
+                        <img class="item" src="images/TAZAS.jpg" alt="Taza">
+                        <div class="middle">
+                            <p>TAZAS</p>
                         </div>
                     </a>
                 </div>
@@ -261,22 +243,6 @@
         </div>
         <br/>
         <div class="line"></div>
-        <!--<div class="sec2_box_text">
-            <p class="barlow_p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum molestiae eaque itaque nemo repellendus rem odit dolorem,
-                est unde et. Culpa, id. Laboriosam enim eum, quos aperiam optio sed ea!</p>
-        </div>-->
-
-        <!-- <form method="post" onsubmit="myFunction()">
-            <div class="wrapper">
-                <input type="text" name="name" placeholder="Nombre*" value="" required>
-                <input type="email" name="email" placeholder="Email*" value="" required>
-                <textarea name="message" placeholder="Mensaje"></textarea>
-            </div>
-            <button class="email-btn" type="submit" name="submit">Enviar</button>
-            <div class="popup">
-                <span class="popuptext" id="myPopup">Email enviado correctamente!</span>
-            </div>
-        </form> -->
 
         <form id="contactform" method="post">
             <div class="wrapper">
