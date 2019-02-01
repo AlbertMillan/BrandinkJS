@@ -1,30 +1,29 @@
 import * as mailView from './views/mailView';
-import { elements } from './views/base'
+import { mainElements } from './views/base'
 
 const mailchecker = require('mailchecker');
 const axios = require('axios');
-const fs = require('fs');
 
 
-// const API_URL = 'http://localhost:3000/api'
-const API_URL =  'https://infinite-spire-26504.herokuapp.com/api'
+const API_URL = 'http://localhost:3000/api'
+// const API_URL =  'https://infinite-spire-26504.herokuapp.com/api'
 
 const instance = axios.create({
     validateStatus: ((status) => status === 200)
 });
 
 
-elements.formBtn.addEventListener('click', async (event) => {
+mainElements.formBtn.addEventListener('click', async (event) => {
     event.preventDefault();
 
     // Check if fields are filled
-    if (elements.formName.value !== '' && elements.formEmail.value !== '')
+    if (mainElements.formName.value !== '' && mainElements.formEmail.value !== '')
     {  
         // check email format
-        if (mailchecker.isValid(elements.formEmail.value) )
+        if (mailchecker.isValid(mainElements.formEmail.value) )
         {
             // 1. Send Pass parameters to send email and retrieve response
-            const url = `${API_URL}/submitForm?name=${elements.formName.value}&email=${elements.formEmail.value}&text=${elements.formMessage.value}`;
+            const url = `${API_URL}/submitForm?name=${mainElements.formName.value}&email=${mainElements.formEmail.value}&text=${mainElements.formMessage.value}`;
 
             instance.get(url)
                 .then((result) => {
@@ -33,10 +32,7 @@ elements.formBtn.addEventListener('click', async (event) => {
                 })
                 .catch ((error) => {
                     const now = new Date().toString();
-                    mailView.setErrorMessage('Servidor en mantenimiento!')
-                    fs.appendFile('client.log', `${now}: ${error}`, (err) => {
-                        if (err) console.log(err);
-                    });
+                    mailView.setErrorMessage('Servidor en mantenimiento!');
                     console.log(error);
                 });
         }
@@ -57,12 +53,3 @@ elements.formBtn.addEventListener('click', async (event) => {
     }, 2000);
     
 });
-
-/**
- * TODO
- *  [✔] Use axiom library to fetch requests to db
- *  [ ] Investigate how to get store data from the request (for 
- *      some reason you aren't able to do so).
- *  [ ] Center error message when sending email.
- *  [ ] Show images code dinamically at the start instead of having shit tons of lines
- */

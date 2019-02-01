@@ -1,21 +1,21 @@
-import { elements } from './base';
+import { mainElements } from './base';
 
 export const toggleEmailResponse = () => {
-    elements.emailResponse.classList.toggle('show');
+    mainElements.emailResponse.classList.toggle('show');
 };
 
 export const setErrorMessage = (text) => {
-    elements.emailResponse.style.backgroundColor = 'red';
-    elements.emailResponse.textContent = text;
+    mainElements.emailResponse.style.backgroundColor = 'red';
+    mainElements.emailResponse.textContent = text;
 };
 
 export const setSuccessMessage = () => {
-    elements.emailResponse.style.backgroundColor = 'green';
-    elements.emailResponse.textContent = 'Email enviado correctamente!';
+    mainElements.emailResponse.style.backgroundColor = 'green';
+    mainElements.emailResponse.textContent = 'Email enviado correctamente!';
 };
 
 export const cleanFields = () => {
-    elements.formName.value = '';
-    elements.formEmail.value = '';
-    elements.formMessage.value = '';
+    mainElements.formName.value = '';
+    mainElements.formEmail.value = '';
+    mainElements.formMessage.value = '';
 };
