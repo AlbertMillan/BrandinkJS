@@ -1,29 +1,30 @@
+require('./config/config');
+
+import { routes } from './config/config';
 import { authElements } from './views/base'
+import * as accountView from './views/accountView';
 
-const axios = require('axios');
-
-const API_URL = 'http://localhost:3000/api'
-
-const instance = axios.create({
-    validateStatus: ((status) => status === 200)
-});
+import axios from 'axios';
 
 // Login
 authElements.submitBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-
     // 1. Check if there are both username and password
     if ( authElements.username.value !== '' && authElements.password.value !== '')
     {
-        const url = `${API_URL}/login?username=${authElements.username.value}&password=${authElements.username.value}`;
+        e.preventDefault();     // Inside so that the form handles automatically
 
-        instance.get(url)
-         .then((result) => {
+        const postData = {
+            username: authElements.username.value,
+            password: authElements.password.value
+        };
+
+        axios.post(routes.adminLogin, postData).then((response) => {
             console.log('Successful Login!');
+            console.log(response);
+            accountView.clearFields();
          }).catch((err) => {
+             console.log(err);
             console.log('Error found!');
          });
     }
-
-    console.log('Hello Admin Page!');
 });

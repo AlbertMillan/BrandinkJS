@@ -1,16 +1,10 @@
+require('./config/config');
+
 import * as mailView from './views/mailView';
-import { mainElements } from './views/base'
+import { mainElements } from './views/base';
 
-const mailchecker = require('mailchecker');
-const axios = require('axios');
-
-
-const API_URL = 'http://localhost:3000/api'
-// const API_URL =  'https://infinite-spire-26504.herokuapp.com/api'
-
-const instance = axios.create({
-    validateStatus: ((status) => status === 200)
-});
+import axios from 'axios';
+import mailchecker from 'mailchecker';
 
 
 mainElements.formBtn.addEventListener('click', async (event) => {
@@ -23,9 +17,9 @@ mainElements.formBtn.addEventListener('click', async (event) => {
         if (mailchecker.isValid(mainElements.formEmail.value) )
         {
             // 1. Send Pass parameters to send email and retrieve response
-            const url = `${API_URL}/submitForm?name=${mainElements.formName.value}&email=${mainElements.formEmail.value}&text=${mainElements.formMessage.value}`;
+            // const url = `${API_URL}/submitForm?name=${mainElements.formName.value}&email=${mainElements.formEmail.value}&text=${mainElements.formMessage.value}`;
 
-            instance.get(url)
+            axios.get(url)
                 .then((result) => {
                     result.data.message === 'Success' ? mailView.setSuccessMessage() : mailView.setErrorMessage('Error al enviar email!');
                     mailView.cleanFields();
