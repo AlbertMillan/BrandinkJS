@@ -11,4 +11,5 @@ export const authElements = {
     username: document.getElementById('username'),
     password: document.getElementById('password'),
     submitBtn: document.getElementById('submit'),
+    logoutBtn: document.querySelector('.form-recovery'),
 };
