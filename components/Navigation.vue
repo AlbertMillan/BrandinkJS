@@ -99,7 +99,8 @@
               v-bind:key="item.id" 
               v-on:click="selectedNavItem = item.id"
               v-bind:class="{ active : (selectedNavItem == item.id)}"
-          >{{ item.name }}
+          >
+            <router-link class="router-link" :to="item.route">{{ item.name }}</router-link>
           </li>
         </ul>
       </div>
@@ -117,7 +118,7 @@
 <script>
 
 // Prints the scroller position
-console.log(document.documentElement.scrollTop)
+// console.log(document.documentElement.scrollTop)
 
 export default {
   // props: ['scroll'],
@@ -127,9 +128,9 @@ export default {
       menuActive: false,
       selectedNavItem: 0,
       navItems: [
-        { id: 1, name: "TIENDA"},
-        { id: 2, name: "NOSOTROS"},
-        { id: 3, name: "AYUDA"}
+        { id: 1, name: "TIENDA",   route: "shop"},
+        { id: 2, name: "NOSOTROS", route: "about"},
+        { id: 3, name: "AYUDA",    route: "help"}
       ]
       // selectedValue: "0"
     };
@@ -178,14 +179,6 @@ export default {
   border-bottom: 3px solid #489fdf;
   transition: 0.3s;
 
-// .logo
-//   width 160px
-//   height 60px
-//   scale 1.1
-
-// .container
-//   display inline-block
-
 
 ul 
   width: 100%
@@ -228,5 +221,11 @@ li
   -webkit-transform: rotate(45deg) translate(-8px, -8px);
   transform: rotate(45deg) translate(-8px, -8px);
 }
+
+
+.router-link
+  color inherit
+  text-decoration none 
+
 
 </style>

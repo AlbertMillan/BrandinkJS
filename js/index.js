@@ -18,5 +18,8 @@ new Vue({
     router,
     // template: '<App/>',
     // components: { App },
-    render: h => h(App)
+    render: h => h(App),
+    // data: {
+    //     showModal:false
+    // }
 });

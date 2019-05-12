@@ -65,7 +65,8 @@ export default {
     data() {
         return {
             selectedItem: 1,
-            imgFileSource: '../assets/images/',
+            // imgFileSource: '../assets/images/',
+            imgFileSource: 'assets/images/',
             products: this.getDataParams()
         }
     },
@@ -77,8 +78,10 @@ export default {
         }
     },
     methods: {
+        // call heroku...
         getDataParams: function() {
-            let url = 'http://localhost:3000';
+            // let url = 'https://desolate-chamber-60467.herokuapp.com';
+            let url = 'http://localhost:3000'
             let str = (this.option.id === 1) ? '' : this.option.category;
             console.log(str);
             Axios.get(url+'/api/products', {

@@ -5,10 +5,12 @@
         <!-- <navigation-bar v-bind:scroll="scrollPosition"></navigation-bar> -->
         <navigation-bar></navigation-bar>
 
+        <modal v-if="showModal" @close="showModal = false"></modal>
 
-        <shop></shop>
+        <router-view/>
+        <!-- <shop></shop> -->
 
-        <contact-footer></contact-footer>
+        <contact-footer @click="callButtonClicked"></contact-footer>
 
         <reviews></reviews>
 
@@ -28,9 +30,10 @@
 <script>
 import ContactHeader from './Contact.head.vue';
 import NavigationBar from './Navigation.vue';
-import Shop from './Shop.vue';
+// import Shop from './Shop.vue';
 import ContactFooter from './Contact.foot.vue';
 import Reviews from './Reviews.vue';
+import Modal from './Menu.modal.vue';
 
 
 
@@ -39,10 +42,21 @@ export default {
     components: {
         ContactHeader,
         NavigationBar,
-        Shop,
+        // Shop,
         ContactFooter,
-        Reviews
+        Reviews,
+        Modal
     },
+    data () {
+        return {
+            showModal: false
+        }
+    },
+    methods: {
+        callButtonClicked: function() {
+            this.showModal = true;
+        }
+    }
 
     // data () {
     //     return {

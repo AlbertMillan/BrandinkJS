@@ -17,12 +17,10 @@
 
 <script>
 import Menu from './Menu.vue';
-// import Items from './Item.list.vue';
 
 export default {
     components: {
         Menu,
-        // Items,
     },
     data() {
         return {
@@ -47,17 +45,5 @@ export default {
 
 .container
     display block
-
-// .shop-container
-//     height auto 
-//     width 90%
-//     padding-left 80px
-//     padding-right 80px
-//     display flex
-
-// .shop-menu
-//     width 30%
-//     max-width 375px
-//     float left 
     
 </style>

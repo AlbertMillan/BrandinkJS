@@ -22,7 +22,9 @@
                     <h3>Te llamamos nosotros</h3>
                 </div>
                 <div>
-                    <!-- <h1>+34 615 641 666</h1> -->
+                    <!-- <button class="white-box" v-on:click="$emit('show', true)">LLAMADME AHORA</button> -->
+                    <button class="white-box" v-on="$listeners">LLAMADME AHORA</button>
+                    <!-- <button class="white-box" v-on:click="hello()">LLAMADME AHORA</button> -->
                 </div>
             </div>
         </div>
@@ -32,7 +34,16 @@
 
 <script>
 export default {
-
+    // data() {
+    //     return {
+    //         showModal: false
+    //     }
+    // }
+    // methods: {
+    //     hello: function() {
+    //         console.log('Hello');
+    //     }
+    // }
 }
 </script>
 
@@ -53,7 +64,26 @@ export default {
 
 .sub-text 
     text-align center
- 
+
+.white-box
+    width 100%
+    cursor pointer
+    background-color transparent
+    color white
+    font-family "Open-Sans--semibold"
+    letter-spacing 1.3px
+    font-size 18px
+    padding 12px 13px
+    border-width 4px
+    border-style solid 
+    border-color white
+    border-image none 
+
+.white-box:active
+    transform translateY(4px)
+
+.white-box:focus
+    outline none 
 
 </style>
 
